@@ -1,0 +1,138 @@
+.praise {
+    width: 170px;
+    height: 250px;
+    margin: 200px auto 0;
+    border: 2px solid gray;
+    border-right: 0;
+    position: relative;
+    z-index: 2;
+
+    background: #f0c6ae;
+    border-radius: 30px 0 0 30px;
+    cursor: pointer;
+
+    &::after {
+        position: absolute;
+        left: 180px;
+        top: -30px;
+        z-index: -1;
+        content: '+1';
+        width: 30px;
+        height: 30px;
+        opacity: 0;
+    
+        font-size: 24px;
+        text-align: center;
+        line-height: 30px;
+        color: #735317;
+        transition: all .3s cubic-bezier(0, 0, 0.14, 0.96);
+    }
+
+    &__thumb {
+        width: 140px;
+        height: 66px;
+        border: 2px solid gray;
+        border-bottom: 0;
+        border-left: 0;
+        position: absolute;
+        top: -75px;
+        left: 6px;
+        transform: rotate(-60deg);
+
+        background: #f0c6ae;
+        border-radius: 0 33px 33px 0;
+        background: linear-gradient(to right, #f0c6ae 50%,#f9e1d4 90% );
+        box-shadow: -3px 0px 3px #f3c7ac inset;
+    }
+
+    &__thumb::before {
+        width: 56px;
+        height: 56px;
+        content: '';
+        position: absolute;
+        left: 8px;
+        top: 3px;
+
+        background: linear-gradient(to right, #f0c6ae 40%, #e7b497);
+        /* background: linear-gradient(180deg,transparent,rgba(0,0,0,.7) 23%,rgba(0,0,0,.85) 57%) */
+        border-radius: 50%;
+    }
+
+    &__wist {
+        width: 140px;
+        height: 190px;
+        border-top: 2px solid gray;
+        position: absolute;
+        left: -140px;
+        top: 30px;
+
+        background: #f0c6ae;
+    }
+
+    &__finger-box {
+        width: 70px;
+        height: 100%;
+        position: absolute;
+        top: -2px;
+        right: -60px;
+    }
+
+    &__finger {
+        width: 100%;
+        height: 61px;
+        border: 2px solid gray;
+        border-left: 0;
+        border-radius: 0 30px 30px 0;
+
+        background: #f0c6ae;
+        background: linear-gradient(to right, #f0c6ae 20%,#faf0e6 100% );
+        box-shadow: -3px 0px 3px #f3c7ac inset;
+    }
+
+
+    &__finger + .praise__finger {
+        margin-top: -2px;
+    }
+}
+
+// relative code
+
+.animate-praise::after{
+    animation: addOne .5s;
+}
+
+.num {
+    font-size: 30px;
+    font-weight: bold;
+    color: lightblue;
+    text-align: center;
+    margin-top: 30px;
+}
+
+@keyframes addOne {
+    from {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-120px) scale(2.5);
+        opacity: .2;
+    }
+}
+
+/* 点击效果 */
+.praise:active {
+    background: #e6bda6;
+}
+.praise:active .praise__wist {
+    background: #e6bda6;
+}
+.praise:active .praise__thumb {
+    background: linear-gradient(to right, #e6bda6 50%,#f9e1d4 90% );
+}
+.praise:active .praise__thumb::before {
+    background: linear-gradient(to right, #e6bda6 40%, #d6a78c);
+}
+.praise:active .praise__finger {
+    background: linear-gradient(to right, #e6bda6 50%,#f9e1d4 100% );
+}
